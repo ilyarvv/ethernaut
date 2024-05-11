@@ -1,0 +1,8 @@
+Level 3: Coin Flip
+
+contract.address()
+await contract.consecutiveWins().then(v => v.toString())
+
+if (lastHash == blockValue) {
+   revert();
+}
