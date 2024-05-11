@@ -1,0 +1,4 @@
+Level 2: Fallout
+
+await contract.Fal1out()
+await contract.owner() === player
