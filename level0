@@ -1,0 +1,12 @@
+Level 0: Hello Ethernaut
+
+await contract.info()
+await contract.info1()
+await contract.info2("hello")
+await contract.infoNum().then(v => v.toString())
+await contract.info42()
+await contract.theMethodName()
+await contract.method7123949()
+contract
+await contract.password()
+await contract.authenticate('ethernaut0')
